@@ -11,7 +11,7 @@ __license__ = "MIT"
 __url__ = "https://github.com/jwodder/argset"
 
 from dataclasses import dataclass
-from typing import FrozenSet
+from typing import Any, Dict, FrozenSet
 
 
 @dataclass
@@ -34,3 +34,9 @@ class ArgSet:
         return (
             self.takes_kwargs or arg in self.required_args or arg in self.optional_args
         )
+
+    def select(self, kwargs: Dict[str, Any]) -> Dict[str, Any]:
+        return {k: v for k, v in kwargs.items() if k in self}
+
+    def missing(self, kwargs: Dict[str, Any]) -> FrozenSet[str]:
+        return frozenset(self.required_args - kwargs.keys())
