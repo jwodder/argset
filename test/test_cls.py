@@ -8,6 +8,7 @@ def test_positional_only() -> None:
         optional_positional_only=2,
         required_args=frozenset(),
         optional_args=frozenset(),
+        takes_args=False,
         takes_kwargs=False,
     )
     assert a.positional_only == 3
@@ -19,6 +20,7 @@ def test_argnames() -> None:
         optional_positional_only=0,
         required_args=frozenset(["foo", "bar"]),
         optional_args=frozenset(["baz"]),
+        takes_args=False,
         takes_kwargs=False,
     )
     assert a.argnames == frozenset(["foo", "bar", "baz"])
@@ -30,6 +32,7 @@ def test_in_no_kwargs() -> None:
         optional_positional_only=0,
         required_args=frozenset(["foo", "bar"]),
         optional_args=frozenset(["baz"]),
+        takes_args=False,
         takes_kwargs=False,
     )
     assert "foo" in a
@@ -43,6 +46,7 @@ def test_in_takes_kwargs() -> None:
         optional_positional_only=0,
         required_args=frozenset(["foo", "bar"]),
         optional_args=frozenset(["baz"]),
+        takes_args=False,
         takes_kwargs=True,
     )
     assert "foo" in a
@@ -56,6 +60,7 @@ def test_select_no_kwargs() -> None:
         optional_positional_only=0,
         required_args=frozenset(["foo", "bar"]),
         optional_args=frozenset(["baz"]),
+        takes_args=False,
         takes_kwargs=False,
     )
     assert a.select({"foo": 42, "baz": 23, "quux": 17}) == {"foo": 42, "baz": 23}
@@ -67,6 +72,7 @@ def test_select_takes_kwargs() -> None:
         optional_positional_only=0,
         required_args=frozenset(["foo", "bar"]),
         optional_args=frozenset(["baz"]),
+        takes_args=False,
         takes_kwargs=True,
     )
     assert a.select({"foo": 42, "baz": 23, "quux": 17}) == {
@@ -83,6 +89,7 @@ def test_missing(takes_kwargs: bool) -> None:
         optional_positional_only=0,
         required_args=frozenset(["foo", "bar"]),
         optional_args=frozenset(["baz", "gnusto"]),
+        takes_args=False,
         takes_kwargs=takes_kwargs,
     )
     assert a.missing({"foo": 42, "baz": 23, "quux": 17}) == frozenset(["bar"])
