@@ -14,6 +14,8 @@ from dataclasses import dataclass
 import inspect
 from typing import Any, Callable, Dict, FrozenSet
 
+__all__ = ["ArgSet", "argset"]
+
 
 @dataclass
 class ArgSet:
