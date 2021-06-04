@@ -23,3 +23,4 @@ repos:
           - flake8-builtins
           - flake8-import-order-jwodder
           - flake8-unused-arguments
+        exclude: test/data

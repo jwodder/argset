@@ -68,7 +68,9 @@ def argset(func: Callable) -> ArgSet:
         elif param.kind is param.VAR_KEYWORD:
             takes_kwargs = True
         else:
-            raise AssertionError("Unknown parameter type: {param.kind!r}")
+            raise AssertionError(
+                "Unknown parameter type: {param.kind!r}"
+            )  # pragma: no cover
     return ArgSet(
         required_positional_only=required_pos,
         optional_positional_only=optional_pos,
