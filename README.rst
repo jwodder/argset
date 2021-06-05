@@ -42,7 +42,8 @@ Inspecting a function's arguments::
 
     >>> from argset import argset
     >>> def my_func(foo, bar):
-    ...     print(f"{foo=}, {bar=}")
+    ...     print(f"foo={foo!r}")
+    ...     print(f"bar={bar!r}")
     ... 
     >>> a = argset(my_func)
     >>> "foo" in a
@@ -55,13 +56,14 @@ Filtering a set of arguments to just those accepted by the function::
     >>> a.select({"foo": 42, "bar": 23, "quux": 17})
     {'foo': 42, 'bar': 23}
     >>> my_func(**a.select({"foo": 42, "bar": 23, "quux": 17}))
-    foo=42, bar=23
+    foo=42
+    bar=23
 
 Same as above, but now the function takes ``**kwargs``::
 
     >>> from argset import argset
     >>> def my_func2(foo, **kwargs):
-    ...     print(f"{foo=}")
+    ...     print(f"foo={foo!r}")
     ...     for k, v in kwargs.items():
     ...          print(f"{k}={v!r}")
     ... 
