@@ -20,6 +20,7 @@
 `GitHub <https://github.com/jwodder/argset>`_
 | `PyPI <https://pypi.org/project/argset/>`_
 | `Issues <https://github.com/jwodder/argset/issues>`_
+| `Changelog <https://github.com/jwodder/argset/blob/master/CHANGELOG.md>`_
 
 ``argset`` provides a simple interface for determining whether a callable takes
 an argument with a given name, filtering a ``dict`` of potential arguments down
