@@ -29,7 +29,7 @@ def test_simple() -> None:
 
 
 def test_defaulting() -> None:
-    def defaulting(foo: Any, bar: Any = None) -> Any:
+    def defaulting(foo: Any, bar: Any = None) -> Any:  # noqa: U100
         return foo
 
     assert argset(defaulting) == ArgSet(
