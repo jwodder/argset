@@ -45,7 +45,7 @@ Inspecting a function's arguments::
     >>> def my_func(foo, bar):
     ...     print(f"foo={foo!r}")
     ...     print(f"bar={bar!r}")
-    ... 
+    ...
     >>> a = argset(my_func)
     >>> "foo" in a
     True
@@ -67,7 +67,7 @@ Same as above, but now the function takes ``**kwargs``::
     ...     print(f"foo={foo!r}")
     ...     for k, v in kwargs.items():
     ...          print(f"{k}={v!r}")
-    ... 
+    ...
     >>> a2 = argset(my_func2)
     >>> "foo" in a2
     True

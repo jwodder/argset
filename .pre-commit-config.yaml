@@ -8,7 +8,6 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
-        exclude: README.rst
 
   - repo: https://github.com/psf/black
     rev: 21.11b1
@@ -28,4 +27,4 @@ repos:
           - flake8-bugbear
           - flake8-builtins
           - flake8-unused-arguments
-        exclude: test/data
+        exclude: ^test/data
