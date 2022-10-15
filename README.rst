@@ -29,7 +29,7 @@ that are missing from a ``dict`` of potential arguments.
 
 Installation
 ============
-``argset`` requires Python 3.6 or higher.  Just use `pip
+``argset`` requires Python 3.7 or higher.  Just use `pip
 <https://pip.pypa.io>`_ for Python 3 (You have pip, right?) to install
 ``argset`` and its dependencies::
 
