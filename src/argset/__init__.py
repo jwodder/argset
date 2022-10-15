@@ -9,15 +9,18 @@ that are missing from a `dict` of potential arguments.
 Visit <https://github.com/jwodder/argset> for more information.
 """
 
+from __future__ import annotations
+
 __version__ = "0.2.0.dev1"
 __author__ = "John Thorvald Wodder II"
 __author_email__ = "argset@varonathe.org"
 __license__ = "MIT"
 __url__ = "https://github.com/jwodder/argset"
 
+from collections.abc import Callable
 from dataclasses import dataclass
 import inspect
-from typing import Any, Callable, Dict, FrozenSet
+from typing import Any
 
 __all__ = ["ArgSet", "argset"]
 
@@ -36,11 +39,11 @@ class ArgSet:
 
     #: The names of all positional-or-keyword or keyword-only arguments that do
     #: not have default values
-    required_args: FrozenSet[str]
+    required_args: frozenset[str]
 
     #: The names of all positional-or-keyword or keyword-only arguments that
     #: have default values
-    optional_args: FrozenSet[str]
+    optional_args: frozenset[str]
 
     #: Whether the callable has an argument of the form ``*args``
     takes_args: bool
@@ -54,7 +57,7 @@ class ArgSet:
         return self.required_positional_only + self.optional_positional_only
 
     @property
-    def argnames(self) -> FrozenSet[str]:
+    def argnames(self) -> frozenset[str]:
         """The names of all positional-or-keyword or keyword-only arguments"""
         return self.required_args | self.optional_args
 
@@ -63,7 +66,7 @@ class ArgSet:
             self.takes_kwargs or arg in self.required_args or arg in self.optional_args
         )
 
-    def select(self, kwargs: Dict[str, Any]) -> Dict[str, Any]:
+    def select(self, kwargs: dict[str, Any]) -> dict[str, Any]:
         """
         Returns all items in ``kwargs`` where the key is the name of a
         positional-or-keyword or keyword-only argument accepted by the
@@ -72,7 +75,7 @@ class ArgSet:
         """
         return {k: v for k, v in kwargs.items() if k in self}
 
-    def missing(self, kwargs: Dict[str, Any]) -> FrozenSet[str]:
+    def missing(self, kwargs: dict[str, Any]) -> frozenset[str]:
         """
         Returns all keys in ``required_args`` that do not appear in ``kwargs``
         """

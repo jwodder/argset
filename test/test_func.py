@@ -1,6 +1,7 @@
+from __future__ import annotations
 from pathlib import Path
 import sys
-from typing import Any, Dict
+from typing import Any
 import pytest
 from argset import ArgSet, argset
 
@@ -8,8 +9,8 @@ DATA_DIR = Path(__file__).with_name("data")
 
 
 @pytest.fixture(scope="module")
-def pos_only() -> Dict[str, Any]:
-    namespace: Dict[str, Any] = {}
+def pos_only() -> dict[str, Any]:
+    namespace: dict[str, Any] = {}
     exec((DATA_DIR / "pos_only.py").read_text(), namespace)
     return namespace
 
@@ -43,7 +44,7 @@ def test_defaulting() -> None:
 
 
 def test_kwarged() -> None:
-    def kwarged(**kwargs: Any) -> Dict[str, Any]:
+    def kwarged(**kwargs: Any) -> dict[str, Any]:
         return kwargs
 
     assert argset(kwarged) == ArgSet(
@@ -73,7 +74,7 @@ def test_arged() -> None:
 @pytest.mark.skipif(
     sys.version_info[:2] < (3, 8), reason="Positional-only arguments not supported"
 )
-def test_pos_kwarg_only(pos_only: Dict[str, Any]) -> None:
+def test_pos_kwarg_only(pos_only: dict[str, Any]) -> None:
     func = pos_only["pos_kwarg_only"]
     assert callable(func)
     assert argset(func) == ArgSet(
@@ -89,7 +90,7 @@ def test_pos_kwarg_only(pos_only: Dict[str, Any]) -> None:
 @pytest.mark.skipif(
     sys.version_info[:2] < (3, 8), reason="Positional-only arguments not supported"
 )
-def test_pos_kwarg_only_defaults(pos_only: Dict[str, Any]) -> None:
+def test_pos_kwarg_only_defaults(pos_only: dict[str, Any]) -> None:
     func = pos_only["pos_kwarg_only_defaults"]
     assert callable(func)
     assert argset(func) == ArgSet(
