@@ -1,19 +1,21 @@
-.. image:: https://www.repostatus.org/badges/latest/active.svg
+|repostatus| |ci-status| |coverage| |pyversions| |license|
+
+.. |repostatus| image:: https://www.repostatus.org/badges/latest/active.svg
     :target: https://www.repostatus.org/#active
     :alt: Project Status: Active — The project has reached a stable, usable
           state and is being actively developed.
 
-.. image:: https://github.com/jwodder/argset/actions/workflows/test.yml/badge.svg
+.. |ci-status| image:: https://github.com/jwodder/argset/actions/workflows/test.yml/badge.svg
     :target: https://github.com/jwodder/argset/actions/workflows/test.yml
     :alt: CI Status
 
-.. image:: https://codecov.io/gh/jwodder/argset/branch/master/graph/badge.svg
+.. |coverage| image:: https://codecov.io/gh/jwodder/argset/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/jwodder/argset
 
-.. image:: https://img.shields.io/pypi/pyversions/argset.svg
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/argset.svg
     :target: https://pypi.org/project/argset/
 
-.. image:: https://img.shields.io/github/license/jwodder/argset.svg
+.. |license| image:: https://img.shields.io/github/license/jwodder/argset.svg
     :target: https://opensource.org/licenses/MIT
     :alt: MIT License
 
