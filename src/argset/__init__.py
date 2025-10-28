@@ -10,17 +10,16 @@ Visit <https://github.com/jwodder/argset> for more information.
 """
 
 from __future__ import annotations
-
-__version__ = "0.1.1"
-__author__ = "John Thorvald Wodder II"
-__author_email__ = "argset@varonathe.org"
-__license__ = "MIT"
-__url__ = "https://github.com/jwodder/argset"
-
 from collections.abc import Callable
 from dataclasses import dataclass
 import inspect
 from typing import Any
+
+__version__ = "0.1.1.post1"
+__author__ = "John Thorvald Wodder II"
+__author_email__ = "argset@varonathe.org"
+__license__ = "MIT"
+__url__ = "https://github.com/jwodder/argset"
 
 __all__ = ["ArgSet", "argset"]
 
